@@ -258,4 +258,37 @@ static const char *extract_unique_id(request_rec *r, char *a)
 	  return tempid;
 }
 
+/* The X-Forwarded-For HTTP header is a de facto standard for identifying the originating IP address
+ * of a client connecting to a web server through an HTTP proxy or load balancer. 
+ */
+static const char *extract_forwarded_for(request_rec *r, char *a)
+{
+	const char *val;
+	const char *forwarded_for;
+
+	forwarded_for = apr_table_get(r->headers_in, "X-Forwarded-For");
+	if (forwarded_for != NULL) {
+		/* try to get the farthest downstream client */
+		val = ap_get_token(r->pool, &forwarded_for, 0);
+		return val;
+	}
+
+	/* return the remote IP address if no X-Forwarded-For HTTP header is set */
+	return r->connection->remote_ip;
+}
+
+/* Special HTTP header for mod_vhs read http://openvisp.fr/doku/doku.php?id=mod_vhs:logs  */
+static const char *extract_vhgecos(request_rec *r, char *a)
+{
+	const char *vhgecos;
+
+	vhgecos = apr_table_get(r->subprocess_env, "VH_GECOS");
+	if (vhgecos != NULL) {
+		return vhgecos;
+	}
+
+	/* return the virtual host name if no VH_GECOS HTTP header is set */
+	return r->server->server_hostname;
+}
+
 /* End declarations of various extract_ functions */

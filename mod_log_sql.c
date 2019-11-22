@@ -493,6 +493,8 @@ static void log_sql_module_init(server_rec *s, apr_pool_t *p)
     log_sql_register_item(s,p,'U', extract_request_uri,       "request_uri",      1, 1);
     log_sql_register_item(s,p,'v', extract_virtual_host,      "virtual_host",     0, 1);
     log_sql_register_item(s,p,'V', extract_server_name,       "virtual_host",     0, 1);
+    log_sql_register_item(s,p,'x', extract_forwarded_for,     "remote_host",      0, 1);
+    log_sql_register_item(s,p,'g', extract_vhgecos,           "virtual_host",     0, 1);
 
     if (global_config.announce) {
         ap_add_version_component(p, PACKAGE_NAME"/"PACKAGE_VERSION);

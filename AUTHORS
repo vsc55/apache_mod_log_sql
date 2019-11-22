@@ -9,3 +9,6 @@ Zeev Suraski <bourbon at netvision.net dot il>
 
 The Apache Foundation
 	standard apache logging module for which this module is based on
+
+Modified to work with the X-Forwarded-For and mod_vhs HTTP header by Rene Kanzler <rk (at) cosmomill (dot) de>
+Update X-Forwarded-For and mod_vhs HTTP to version 1.101 by Javier Pastor <jpastor (at) cerebelum (dot) net>

@@ -1066,7 +1066,10 @@ WHERE a.id='PPIDskBRH30AAGPtAsg';</pre><div class="table"><a id="id2868167"></a>
                       </td><td>time_stamp</td><td>int unsigned</td><td>1005598029</td></tr><tr><td>s</td><td>HTTP Response Code Status</td><td>status</td><td>smallint</td><td>200</td></tr><tr><td>T</td><td>Seconds to service request</td><td>request_duration</td><td>smallint unsigned</td><td>2</td></tr><tr><td>t</td><td>Time of request in human format</td><td>request_time</td><td>char(28)</td><td>[02/Dec/2001:15:01:26 -0800]</td></tr><tr><td>U</td><td>Request in simple form</td><td>request_uri</td><td>varchar(255)</td><td>/books-cycroad.html</td></tr><tr><td>u</td><td>User info from HTTP auth</td><td>remote_user</td><td>varchar(50)</td><td>bobby</td></tr><tr><td>v</td><td>Virtual host servicing the request</td><td>virtual_host</td><td>varchar(255)</td><td>www.foobar.com</td></tr><tr><td>V</td><td>
                         requested Virtual host name (mass
                         virtualhosting)
-                      </td><td>virtual_host</td><td>varchar(255)</td><td>www.foobar.org</td></tr></tbody></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p><a id="Foot.LogCookie"></a>
+                      </td><td>virtual_host</td><td>varchar(255)</td><td>www.foobar.org</td></tr>
+                      <tr><td>g</td><td>requested Virtual host name for <a href="http://openvisp.fr/doku/doku.php?id=mod_vhs:logs">mod_vhs</a></td><td>virtual_host</td><td>varchar(255)</td><td>www.foobar.org</td></tr>
+                      <tr><td>x</td><td>Name of remote host behind a proxy (X-Forwarded-For)</td><td>remote_host</td><td>varchar(50)</td><td>blah.foobar.com</td></tr>
+                    </tbody></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p><a id="Foot.LogCookie"></a>
                   [1] You must also specify LogSQLWhichCookie for this
                   to take effect.
                 </p><p><a id="Foot.MachineID"></a>
