@@ -14,7 +14,7 @@ static const char *extract_remote_address(request_rec *r, char *a) __attribute__
 
 static const char *extract_remote_address(request_rec *r, char *a)
 {
-    return r->connection->remote_ip;
+    return r->useragent_ip;
 }
 
 static const char *extract_local_address(request_rec *r, char *a) __attribute__((unused));
@@ -274,7 +274,7 @@ static const char *extract_forwarded_for(request_rec *r, char *a)
 	}
 
 	/* return the remote IP address if no X-Forwarded-For HTTP header is set */
-	return r->connection->remote_ip;
+	return r->useragent_ip;
 }
 
 /* Special HTTP header for mod_vhs read http://openvisp.fr/doku/doku.php?id=mod_vhs:logs  */
